@@ -4,15 +4,38 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:all": "npx nx affected:build",
-    "test:all": "npx nx affected:test",
-    "install:all": "pnpm -r install"
+    "build:all": "nx run-many --target=build --parallel=1 --nx-bail --verbose --output-style=stream",
+    "test:all": "nx run-many --target=test --parallel=1 --nx-bail --verbose --output-style=stream",
+    "install:all": "pnpm -r install --stream --aggregate-output",
+    "lint": "eslint packages",
+    "lint:fix": "eslint packages --fix",
+    "prepare": "husky install",
+    "commit-changes": "git add -A && git cz"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@digitalroute/cz-conventional-changelog-for-jira": "^7.4.0",
+    "@nrwl/nx-cloud": "latest",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "commitizen": "^4.2.5",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.8",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "nx": "14.7.5",
-    "@nrwl/nx-cloud": "latest"
+    "prettier": "^2.7.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@digitalroute/cz-conventional-changelog-for-jira"
+    }
   }
 }

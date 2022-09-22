@@ -1,0 +1,56 @@
+{
+  "name": "@bb-platform-extensions/shared-components-frontend-services",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "lib"
+  ],
+  "main": "@bb-platform-extensions/shared-components-frontend-services.umd.js",
+  "module": "@bb-platform-extensions/shared-components-frontend-services.es.js",
+  "exports": {
+    ".": {
+      "import": "./@bb-platform-extensions/shared-components-frontend-services.es.js",
+      "require": "./@bb-platform-extensions/shared-components-frontend-services.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm compile:prod",
+    "compile:prod": "tsc && vite build",
+    "compile:dev": "pnpm clean && vite build --mode dev && cp package.json lib",
+    "clean": "rm -rf ./lib",
+    "preview": "vite preview",
+    "link:module": "pnpm clean && pnpm compile:dev && cd lib && pnpm link --global",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-vite": "^0.2.2",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "0.0.13",
+    "@types/node": "^18.7.18",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "@vitejs/plugin-react": "^2.1.0",
+    "babel-loader": "^8.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0",
+    "vite-plugin-dts": "^1.5.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || 17.x || 18.x",
+    "react-dom": "^16.8.0 || 17.x || 18.x",
+    "styled-components": "^5.3.5"
+  },
+  "dependencies": {}
+}

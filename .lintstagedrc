@@ -1,0 +1,3 @@
+{
+  "*.(ts|tsx|mdx)": "pnpm lint:fix"
+}
